@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.nio.charset.Charset;
 
 public class BerOctetString implements Serializable, BerType {
 
@@ -138,5 +139,15 @@ public class BerOctetString implements Serializable, BerType {
   @Override
   public String toString() {
     return HexString.fromBytes(value);
+  }
+
+  public String getValue() {
+    return this.getClass().getName().contains("Imsi")
+        ? HexString.fromBytes(value)
+        : new String(value, Charset.defaultCharset());
+  }
+
+  public void setValue(String value) {
+    this.value = HexString.toBytes(value);
   }
 }
