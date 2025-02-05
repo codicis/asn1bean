@@ -11,7 +11,7 @@ plugins {
     id("net.ltgt.errorprone") version "1.3.0"
 }
 
-var cfgJavaVersion = JavaVersion.VERSION_1_8
+var cfgJavaVersion = JavaVersion.VERSION_11
 
 val sonatypeRepository: String? by project
 val sonatypeSnapshotRepository: String? by project
